@@ -7,4 +7,41 @@
       "max_weight": 10
     }
   }
+
+{
+    "entry_point": "max_cut:MaxCutProblem",
+    "default_params": {
+      "num_nodes": 6,
+      "edge_probability": 0.5,
+      "min_weight": 1,
+      "max_weight": 10
+    },
+    "problem_type": "MAXCUT QUBO",
+    "description": "Simple MAXCUT problem transformed to a QUBO problem.",
+    "solution_representation": "array of bits - bitstring",
+    "keywords": [
+      "max cut",
+      "combinatorial",
+      "optimization"
+    ],
+    "decision_variables": {
+      "x_i": {
+        "type": "bit 0 or 1",
+        "description": "Include in the cut or not."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "Minimize the total cost calculated using the QUBO matrix.",
+      "description": "In a graph we make a cut of some nodes and we want to minimize the number of edges between two cuts."
+    },
+    "compatible_optimizers": [
+      "genetic_algorithm",
+      "simulated_annealing",
+      "tabu_search",
+      "particle_swarm"
+    ],
+    "notes": "This is a toy problem."
+  }
+  
   
